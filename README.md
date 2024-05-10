@@ -24,5 +24,5 @@ This action will fetch secrets from infisical instance to Github actions workflo
         with:
           service_token: ${{ secrets.INFISICAL_SERVICE_TOKEN }}
           output_file: ${{ vars.OUTPUT_FILE }}
-          infisical_url: ${{ vars.INFISICAL_URL }}
+          infisical_url: ${{ secrets.INFISICAL_URL }}
 ```
