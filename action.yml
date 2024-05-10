@@ -8,17 +8,10 @@ inputs:
   service_token:
     description: 'Infisical Service Token'
     required: true
-  environment:
-    description: 'The name of the environment in Infisical to grab the secrets from'
-    required: false
   output_file:
     description: 'Output file path'
     required: true
     default: '.env'
-  secret_path:
-    description: 'Secret path (defaults to /)'
-    required: false
-    default: '/'
   infisical_url:
     description: 'Infisical API URL'
     required: true
@@ -33,7 +26,7 @@ runs:
         --header "Authorization: Bearer ${{ inputs.service_token }}"\
         | jq -r '.secrets[] | "\(.secretKey)=\(.secretValue)"' > ${{ inputs.output_file }}
     - shell: bash
-      run: echo "Secrets stored to file ${{ inputs.output_file }}"
+      run: echo "Secrets stored to file /${{ inputs.output_file }}"
 
 version: '1.0.0'
 categories:
