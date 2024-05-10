@@ -32,4 +32,4 @@ runs:
         --url "${{ inputs.infisical_url }}/api/v3/secrets/raw" \
         --header "Authorization: Bearer ${{ inputs.service_token }}"\
         | jq -r '.secrets[] | "\(.secretKey)=\(.secretValue)"' > ${{ inputs.output_file }}
-    - run: echo "Secrets stored to file ${{ inputs.output_file }}".
+
