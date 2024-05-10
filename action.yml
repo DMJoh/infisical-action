@@ -1,4 +1,4 @@
-name: 'Fetch Infisical Secrets'
+name: 'Get Infisical Secrets'
 description: 'Get infisical secrets and add to GitHub Actions env'
 author: 'DMJoh'
 branding:
