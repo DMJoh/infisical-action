@@ -14,7 +14,7 @@ This action will fetch secrets from infisical instance to Github actions workflo
 
 - Add `INFISICAL_SERVICE_TOKEN`, `INFISICAL_URL` and `OUTPUT_FILE` to repository/environment secrets or variables.
 
-```
+```yaml
   build:
     runs-on: ubuntu-latest
     steps:
