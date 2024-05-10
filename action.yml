@@ -8,12 +8,12 @@ inputs:
   service_token:
     description: 'Infisical Service Token'
     required: true
-  # environment:
-  #   description: 'The name of the environment in Infisical to grab the secrets from'
-  #   required: true
+  environment:
+    description: 'The name of the environment in Infisical to grab the secrets from'
+    required: false
   output_file:
     description: 'Output file path'
-    required: false
+    required: true
     default: '.env'
   secret_path:
     description: 'Secret path (defaults to /)'
@@ -21,7 +21,7 @@ inputs:
     default: '/'
   infisical_url:
     description: 'Infisical API URL'
-    required: false
+    required: true
 runs:
   using: 'composite'
   steps:
