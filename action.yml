@@ -12,10 +12,6 @@ inputs:
     description: 'Output file path'
     required: true
     default: '.env'
-  output_path:
-    description: 'Path for the output file (defaults to /). eg; subdirectories if needed'
-    required: false
-    default: '/'
   infisical_url:
     description: 'Infisical API URL'
     required: true
@@ -28,9 +24,9 @@ runs:
         curl --request GET \
         --url "${{ inputs.infisical_url }}/api/v3/secrets/raw" \
         --header "Authorization: Bearer ${{ inputs.service_token }}"\
-        | jq -r '.secrets[] | "\(.secretKey)=\(.secretValue)"' > ${{inputs.output_path}}/${{ inputs.output_file }}
+        | jq -r '.secrets[] | "\(.secretKey)=\(.secretValue)"' > ${{ inputs.output_file }}
     - shell: bash
-      run: echo "Secrets stored to file ${{inputs.output_path}}/${{ inputs.output_file }}"
+      run: echo "Secrets stored to file /${{ inputs.output_file }}"
 
 version: '1.0.0'
 categories:
