@@ -1,0 +1,36 @@
+name: 'Fetch Infisical Secrets'
+description: 'Get infisical secrets and add to github actions env'
+author:'DMJoh'
+branding:
+  icon: 'download-cloud'
+  color: 'yellow'
+inputs:
+  service_token:
+    description: 'Infisical Service Token'
+    required: true
+  environment:
+    description: 'The name of environment in infisical to grab the secrets from'
+    required: true
+  output_file:
+    description: 'Output file path'
+    required: false
+    default: '.env'
+  secret_path:
+    description: 'Secret path (defaults to /)'
+    required: false
+    default: '/'
+  infisical_url:
+    description: 'Infisical API URL'
+    required: false
+runs:
+  using: 'composite'
+  steps:
+    - name: Get the secret and write it to a file of choice
+      shell: bash
+      run: |
+        curl --request GET \
+        --url "${{ inputs.infisical_url }}/api/v3/secrets/raw" \
+        --header "Authorization: Bearer ${{ inputs.service_token }}"\
+        | jq -r '.secrets[] | "\(.secretKey)=\(.secretValue)"' > ${{ inputs.output_file }}
+    - shell: bash
+      run: echo "Secrets stored to file ${{ inputs.output_file }}".
