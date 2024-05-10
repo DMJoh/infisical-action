@@ -1,6 +1,7 @@
 ## Infisical integration for GitHub Actions
-This action will fetch secrets from infisical instance to Github actions workflow.
-**NOTE: Applies only for self-hosted Infisical instances now.**
+This action will fetch secrets from infisical instance to Github actions workflow.  
+
+**_NOTE: Applies only for self-hosted Infisical instances now._**
 
 #### Input variables
 
