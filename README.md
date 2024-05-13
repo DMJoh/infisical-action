@@ -1,7 +1,9 @@
 ## Infisical integration for GitHub Actions
+
+**This service & API token will be deprecated soon See [here](https://infisical.com/blog/deprecating-api-keys)**   
 This action will fetch secrets from infisical instance to Github actions workflow.  
 
-**_NOTE: Applies only for self-hosted Infisical instances now._**
+**_NOTE: Applies only for self-hosted Infisical instances (others may work)._**
 
 #### Input variables
 
@@ -9,9 +11,11 @@ This action will fetch secrets from infisical instance to Github actions workflo
 |------|-----|-----|-----|
 |infisical_url|The url of the infisical instance eg: `https://app.infisical-host.com`|None|yes|
 |output_file|File path where the environment variables will be written|.env|yes|
-|service_token| Service token created from infisical | None | yes |
+|service_token| Service token<sup>*</sup> created from infisical | None | yes |
 
-#### Usage
+<sup>*</sup> To create a service token, Go to Project > Auth Secrets > Service Tokens  
+
+#### Usage  
 
 - Add `INFISICAL_SERVICE_TOKEN`, `INFISICAL_URL` and `OUTPUT_FILE` to repository/environment secrets or variables.
 
